@@ -15,11 +15,11 @@ struct UserItemView: View {
 
     var body: some View {
         HStack() {
-            Text(user!.name).font(.headline)
+            Text(user!.username).font(.headline)
             if viewMode == UsersViewMode.strangers {
                 Spacer()
                 Button("Add"){
-                    UserVM.sendFriendRequest(id: user!.id)
+                    UserVM.sendFriendRequest(claimerId: myIdGetter()!, receiverId: user!.id)
                 }
                 .foregroundColor(.white)
                 .padding()
@@ -29,7 +29,7 @@ struct UserItemView: View {
             if viewMode == UsersViewMode.requests {
                 Spacer()
                 Button("Approve"){
-                    UserVM.approveFriendRequest(id: user!.id)
+                    UserVM.approveFriendRequest(claimerId: myIdGetter()!, receiverId: user!.id)
                 }
                 .foregroundColor(.white)
                 .padding()
