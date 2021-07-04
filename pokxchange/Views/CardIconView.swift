@@ -14,7 +14,7 @@ struct CardIconView: View {
     var body: some View {
         VStack {
             VStack {
-                RemoteImage(url: card!.imageUrl)
+                RemoteImage(url: card!.image)
                         .aspectRatio(contentMode: .fit)
                     .frame(width: 40)
 

@@ -30,7 +30,7 @@ struct CardView: View {
                 CustomText(text: "x0",size: 30 * taux)
                     .padding(.horizontal)
             }
-            RemoteImage(url: card!.imageUrl)
+            RemoteImage(url: card!.image)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: width * taux)
             Spacer()

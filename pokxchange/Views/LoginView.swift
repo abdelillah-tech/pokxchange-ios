@@ -8,20 +8,38 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject private var loginVM: LoginViewModel
+    @StateObject private var webService = AuthWebService()
+    @State private var showMessage = false
+    @State private var username = ""
+    @State private var password  = ""
+    @State private var authenticated = false
 
     var body: some View {
         VStack {
             Spacer()
             Form {
+                HStack {
+                    Text(loginVM.authenticated ? "You are connected": "")
+                    Spacer()
+                    Image(systemName: !loginVM.authenticated ? "lock.fill": "lock.open")
+                }
                 TextField("Username", text: $loginVM.username)
                 SecureField("Password", text: $loginVM.password)
-            }
+                HStack {
+                    Spacer()
+                    Button("Login") {
+                        loginVM.login()
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(22)
+                    
+                    Spacer()
+                }
+            }.buttonStyle(PlainButtonStyle())
             Spacer()
-            Button("Login") {
-                loginVM.login()
-            }
-            .padding()
         }
     }
 }

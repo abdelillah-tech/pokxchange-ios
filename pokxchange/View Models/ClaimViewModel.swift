@@ -12,11 +12,11 @@ class ClaimViewModel: ObservableObject {
     
     @Published var card: Card?
 
-    func claim() -> Bool {
+    func claim(authenticated: Bool) -> Bool {
         let claim = CardWebService().claim()
         DispatchQueue.main.async {
             self.card = claim.0
-            CollectionViewModel().saveCard(card: self.card!)
+            CollectionViewModel().saveCard(card: self.card!, authenticated: authenticated)
         }
         return claim.1
     }

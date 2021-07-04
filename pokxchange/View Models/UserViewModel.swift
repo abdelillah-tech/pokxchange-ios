@@ -10,9 +10,24 @@ import Foundation
 class UserViewModel: ObservableObject {
     
     @Published var users = [User]()
+    let defaults = UserDefaults.standard
+    
     
     func getUsers() {
-        users = UserWebService().getUsers()
+        guard let token = defaults.string(forKey: "jsonwebtoken") else {
+            return
+        }
+        
+        UserWebService().getUsers(token: token) { result in
+            switch result {
+                case .success(let users):
+                    DispatchQueue.main.async {
+                        self.users = users
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
     
     func getFriends() {
@@ -20,15 +35,42 @@ class UserViewModel: ObservableObject {
     }
     
     func getUsersRequests() {
-        users = UserWebService().getUsersRequests()
+        //users = UserWebService().getUsersRequests()
     }
     
-    func sendFriendRequest(id: Int) {
-        _ = UserWebService().sendFriendRequest(id: id)
+    func sendFriendRequest(claimerId: UUID, receiverId: UUID) {
+        guard let token = defaults.string(forKey: "jsonwebtoken") else {
+            return
+        }
+        UserWebService().sendFriendRequest(token: token,
+                                  claimerId: claimerId,
+                                  receiverId: receiverId) { result in
+            switch result {
+                case .success(let state):
+                    DispatchQueue.main.async {
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
     
-    func approveFriendRequest(id: Int) {
-        _ = UserWebService().approveFriendRequest(id: id)
+    func approveFriendRequest(claimerId: UUID, receiverId: UUID) {
+        guard let token = defaults.string(forKey: "jsonwebtoken") else {
+            return
+        }
+        
+        UserWebService().sendFriendRequest(token: token,
+                                  claimerId: claimerId,
+                                  receiverId: receiverId) { result in
+            switch result {
+                case .success(let state):
+                    DispatchQueue.main.async {
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
 
 }

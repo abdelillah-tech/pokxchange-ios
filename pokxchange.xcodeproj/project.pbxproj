@@ -28,6 +28,8 @@
 		3F32817C2690F83600F57A78 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32817B2690F83600F57A78 /* LogoutView.swift */; };
 		3F328182269122EA00F57A78 /* TradeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328181269122EA00F57A78 /* TradeWebService.swift */; };
 		3F3281852691233C00F57A78 /* TradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3281842691233C00F57A78 /* TradeViewModel.swift */; };
+		3F32818B269255FB00F57A78 /* TradeRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32818A269255FB00F57A78 /* TradeRequestsView.swift */; };
+		3F32818E2692687400F57A78 /* MyIdUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32818D2692687400F57A78 /* MyIdUtils.swift */; };
 		3F8B341D26701F49002286FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B341C26701F49002286FB /* Assets.xcassets */; };
 		3F8B342026701F49002286FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B341F26701F49002286FB /* Preview Assets.xcassets */; };
 		3F8B343126702276002286FB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B342C26702276002286FB /* Account.swift */; };
@@ -65,6 +67,8 @@
 		3F32817B2690F83600F57A78 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		3F328181269122EA00F57A78 /* TradeWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeWebService.swift; sourceTree = "<group>"; };
 		3F3281842691233C00F57A78 /* TradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewModel.swift; sourceTree = "<group>"; };
+		3F32818A269255FB00F57A78 /* TradeRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeRequestsView.swift; sourceTree = "<group>"; };
+		3F32818D2692687400F57A78 /* MyIdUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIdUtils.swift; sourceTree = "<group>"; };
 		3F8B341526701F48002286FB /* pokxchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokxchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8B341826701F48002286FB /* pokxchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokxchangeApp.swift; sourceTree = "<group>"; };
 		3F8B341A26701F48002286FB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -99,8 +103,17 @@
 				3F328140268F1DA600F57A78 /* Errors.swift */,
 				3F328155268F4CDB00F57A78 /* HexToRgbColorConverter.swift */,
 				3F328158268F54AF00F57A78 /* RarityToColor.swift */,
+				3F328152268F3E0000F57A78 /* RemoteImage.swift */,
+				3F32818D2692687400F57A78 /* MyIdUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3F32819026926CB800F57A78 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		3F8B340C26701F48002286FB = {
@@ -194,18 +207,19 @@
 		3FDA4668268BACF700F453B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F32819026926CB800F57A78 /* Items */,
 				3F8B341A26701F48002286FB /* LoginView.swift */,
 				3FDA4673268BB1E700F453B6 /* RegisterView.swift */,
 				3FDA4676268BB3B600F453B6 /* TradeView.swift */,
+				3F328137268F023600F57A78 /* UserItemView.swift */,
 				3FDA4679268BB6BD00F453B6 /* UsersView.swift */,
 				3FDA4686268BB7D200F453B6 /* CollectionView.swift */,
 				3F32811B268E640900F57A78 /* CardItemView.swift */,
-				3F328137268F023600F57A78 /* UserItemView.swift */,
 				3F328143268F316A00F57A78 /* CardView.swift */,
-				3F328152268F3E0000F57A78 /* RemoteImage.swift */,
 				3F3281752690ABF800F57A78 /* CardIconView.swift */,
 				3F3281782690D03B00F57A78 /* SearchBar.swift */,
 				3F32817B2690F83600F57A78 /* LogoutView.swift */,
+				3F32818A269255FB00F57A78 /* TradeRequestsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +316,7 @@
 				3F328182269122EA00F57A78 /* TradeWebService.swift in Sources */,
 				3F32816C269075C900F57A78 /* UserWebServer.swift in Sources */,
 				3F328156268F4CDB00F57A78 /* HexToRgbColorConverter.swift in Sources */,
+				3F32818E2692687400F57A78 /* MyIdUtils.swift in Sources */,
 				3F328144268F316B00F57A78 /* CardView.swift in Sources */,
 				3F328162268F7AE100F57A78 /* CardLocalService.swift in Sources */,
 				3FDA467A268BB6BD00F453B6 /* UsersView.swift in Sources */,
@@ -310,6 +325,7 @@
 				3F328159268F54AF00F57A78 /* RarityToColor.swift in Sources */,
 				3FDA4677268BB3B600F453B6 /* TradeView.swift in Sources */,
 				3F8B343226702276002286FB /* View+Extentions.swift in Sources */,
+				3F32818B269255FB00F57A78 /* TradeRequestsView.swift in Sources */,
 				3FDA466D268BB15700F453B6 /* pokxchangeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

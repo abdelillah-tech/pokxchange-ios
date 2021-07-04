@@ -6,64 +6,83 @@
 //
 
 import SwiftUI
+import Network
 
 @main
 struct pokxchangeApp: App {
     @StateObject private var claimVM = ClaimViewModel()
+    @StateObject var loginVM = LoginViewModel()
     @State var showClaim: Bool = false
     
+    
     func claimCard(){
-        showClaim = claimVM.claim()
+        showClaim = claimVM.claim(authenticated: true)
         return
     }
     
     var body: some Scene {
+        
         WindowGroup {
             TabView {
-                NavigationView {
-                    if showClaim {
-                        VStack{
-                            Spacer()
-                            Button("Close card") {
-                                showClaim.toggle()
-                            }
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color.red)
-                            .cornerRadius(22)
-                            Spacer()
-                            CardView(card: claimVM.card, taux: 1)
+                if loginVM.authenticated && showClaim {
+                    VStack{
+                        Spacer()
+                        Button("Close card") {
+                            showClaim.toggle()
                         }
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(22)
+                        Spacer()
+                        CardView(card: claimVM.card, taux: 1)
                     }
-                    else {
-                        CollectionView(id: nil, username: "Pokedex", viewMode: CollectionViewMode.mine)
+                    .tabItem {
+                        Text("Pokedex")
+                        Image("Pokeball")
                     }
-                }
-                .tabItem {
-                    Text("Pokedex")
-                    Image("Pokeball")
+                } else {
+                    NavigationView {
+                        CollectionView(id: nil,
+                                       username: "Pokedex",
+                                       viewMode: CollectionViewMode.mine)
+                    }
+                    .tabItem {
+                        Text("Pokedex")
+                        Image("Pokeball")
+                    }
                 }
                 
-                NavigationView {
-                    UsersView()
-                }
-                .tabItem {
-                    Text("Users")
-                    Image("Users")
+                if loginVM.authenticated {
+                    NavigationView {
+                        UsersView()
+                    }
+                    .tabItem {
+                        Text("Users")
+                        Image("Users")
+                    }
+                } else {
+                    LoginView()
+                    .tabItem {
+                        Text("Users")
+                        Image("Users")
+                    }
+                    
                 }
                 
-                NavigationView {
-                    CollectionView(id: nil, username: "Requests", viewMode: CollectionViewMode.requests)
-                }
-                .tabItem {
-                    Text("Trade Requests")
-                    Image("Trade")
-                }
-            
-                LoginView()
-                .tabItem {
-                    Text("Login")
-                    Image("Login")
+                if loginVM.authenticated {
+                    TradeRequestsView()
+                    .tabItem {
+                        Text("Trade Requests")
+                        Image("Trade")
+                    }
+                } else {
+                    LoginView()
+                    .tabItem {
+                        Text("Trade Requests")
+                        Image("Trade")
+                    }
+                    
                 }
             
                 RegisterView()
@@ -72,13 +91,16 @@ struct pokxchangeApp: App {
                     Image("Register")
                 }
             
-                LogoutView()
-                .tabItem {
-                    Text("Logout")
-                    Image("Register")
+                if loginVM.authenticated {
+                    LogoutView()
+                    .tabItem {
+                        Text("Logout")
+                        Image("Login")
+                    }
                 }
             }
             .onAppear(perform: claimCard)
+            .environmentObject(loginVM)
         }
     }
 }

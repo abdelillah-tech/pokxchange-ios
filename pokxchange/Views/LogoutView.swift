@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LogoutView: View {
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject private var loginVM: LoginViewModel
 
     var body: some View {
         Button("Logout") {

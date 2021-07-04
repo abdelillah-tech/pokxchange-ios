@@ -14,7 +14,7 @@ import SwiftUI
 
 struct UsersView: View {
     @StateObject private var UserVM = UserViewModel()
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject private var loginVM: LoginViewModel
     @State var viewMode: UsersViewMode = UsersViewMode.strangers
     @State var searchText = ""
     @State var searching = false
@@ -29,7 +29,6 @@ struct UsersView: View {
     }
     
     var body: some View {
-        if true {
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
                 HStack {
@@ -65,10 +64,10 @@ struct UsersView: View {
                 }
                 List {
                     ForEach(UserVM.users.filter({ (user: User) -> Bool in
-                        return user.name.lowercased().hasPrefix(searchText.lowercased()) || searchText == ""
+                        return user.username.lowercased().hasPrefix(searchText.lowercased()) || searchText == ""
                     }), id: \.id) { user in
                         if viewMode == UsersViewMode.friends {
-                            NavigationLink(destination: CollectionView(id: user.id, username: user.name, viewMode: CollectionViewMode.friends)) {
+                            NavigationLink(destination: CollectionView(id: user.id, username: user.username, viewMode: CollectionViewMode.friends)) {
                                 UserItemView(user: user, viewMode: viewMode)
                             }
                         } else {
@@ -86,9 +85,6 @@ struct UsersView: View {
                 .navigationBarHidden(true)
                 .listStyle(GroupedListStyle())
             }
-        } else {
-            Text("Please login to enjoy the totality of Pokxchage features")
-        }
     }
 }
 

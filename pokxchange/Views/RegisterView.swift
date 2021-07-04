@@ -15,17 +15,26 @@ struct RegisterView: View {
             Spacer()
 
             Form {
-                TextField("Name", text: $loginVM.username)
                 TextField("Username", text: $loginVM.username)
+                TextField("First name", text: $loginVM.username)
+                TextField("Last name", text: $loginVM.username)
                 TextField("Email", text: $loginVM.username)
                 SecureField("Password", text: $loginVM.password)
                 SecureField("Confirm password", text: $loginVM.password)
-            }
+                HStack {
+                    Spacer()
+                    Button("Register") {
+                        loginVM.login()
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(22)
+                    
+                    Spacer()
+                }
+            }.buttonStyle(PlainButtonStyle())
             Spacer()
-
-            Button("Register") {
-                loginVM.login()
-            }.padding()
         }
     }
 }

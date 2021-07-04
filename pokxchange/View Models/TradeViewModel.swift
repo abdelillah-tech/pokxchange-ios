@@ -11,8 +11,8 @@ class TradeViewModel: ObservableObject {
     
     @Published var collection = [Card]()
     
-    func getCollection(id: Int) {
-        collection = CardWebService().getCollection(id: id)
+    func getCollection(id: UUID) {
+        //collection = CardWebService().getCollection(id: id)
     }
     
     func getMyCollection() {

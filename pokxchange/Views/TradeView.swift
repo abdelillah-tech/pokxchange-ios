@@ -46,7 +46,7 @@ struct TradeView: View {
                 
             }
         }.onAppear{
-            collectionVM.getMyCollection()
+            //collectionVM.getMyCollection(authenticated: true)
         }
     }
 }

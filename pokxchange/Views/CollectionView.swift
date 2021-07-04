@@ -13,9 +13,9 @@ enum CollectionViewMode {
 import SwiftUI
 
 struct CollectionView: View {
-    let id: Int?
+    let id: UUID?
     let username: String
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject private var loginVM: LoginViewModel
     @StateObject private var collectionVM = CollectionViewModel()
     @StateObject private var tradeVM = TradeViewModel()
     @State var collection = [Card]()
@@ -45,7 +45,7 @@ struct CollectionView: View {
                     tradeVM.getTradeRequests()
                     collection = tradeVM.collection
                 default:
-                    collectionVM.getMyCollection()
+                    collectionVM.getAllCards()
                     collection = collectionVM.collection
 
                 }
@@ -56,7 +56,7 @@ struct CollectionView: View {
 }
 
 struct CollectionView_Previews: PreviewProvider {
-    static var id: Int?
+    static var id: UUID?
     static var username: String = ""
     static var viewMode: CollectionViewMode = CollectionViewMode.mine
     static var previews: some View {
