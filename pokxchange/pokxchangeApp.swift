@@ -10,97 +10,85 @@ import Network
 
 @main
 struct pokxchangeApp: App {
-    @StateObject private var claimVM = ClaimViewModel()
     @StateObject var loginVM = LoginViewModel()
+    @StateObject var registerVM = RegisterViewModel()
     @State var showClaim: Bool = false
+    @State var bonusCard: Card?
     
-    
-    func claimCard(){
-        showClaim = claimVM.claim(authenticated: true)
-        return
+    func claimCard() {
+        guard let token = UserDefaults.standard.string(forKey: "jsonwebtoken") else {
+            return
+        }
+        CardWebService().bonus(token: token, id : myIdGetter()) { result in
+            switch result {
+            case .success(let card):
+                DispatchQueue.main.async {
+                    bonusCard = card
+                    showClaim = true
+                }
+            case .failure(_):
+                DispatchQueue.main.async {
+                    bonusCard = nil
+                    showClaim = false
+                }
+            }
+        }
     }
     
     var body: some Scene {
-        
         WindowGroup {
             TabView {
-                if loginVM.authenticated && showClaim {
-                    VStack{
-                        Spacer()
-                        Button("Close card") {
-                            showClaim.toggle()
-                        }
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.red)
-                        .cornerRadius(22)
-                        Spacer()
-                        CardView(card: claimVM.card, taux: 1)
-                    }
-                    .tabItem {
-                        Text("Pokedex")
-                        Image("Pokeball")
-                    }
-                } else {
-                    NavigationView {
+                NavigationView {
+                    ZStack {
                         CollectionView(id: nil,
                                        username: "Pokedex",
-                                       viewMode: CollectionViewMode.mine)
+                                       viewMode: CollectionViewMode.all)
+                            .blur(radius: showClaim ? 20 : 0)
+                        
+                        if showClaim {
+                            VStack {
+                                Button("Close"){
+                                    showClaim.toggle()
+                                    
+                                }.foregroundColor(.white)
+                                .padding()
+                                .background(Color.red)
+                                .cornerRadius(22)
+                                CardView(card: bonusCard, taux: 1)
+                            }
+                        }
                     }
-                    .tabItem {
-                        Text("Pokedex")
-                        Image("Pokeball")
-                    }
+                    .onAppear(perform: claimCard)
                 }
-                
-                if loginVM.authenticated {
-                    NavigationView {
-                        UsersView()
-                    }
-                    .tabItem {
-                        Text("Users")
-                        Image("Users")
-                    }
-                } else {
-                    LoginView()
-                    .tabItem {
-                        Text("Users")
-                        Image("Users")
-                    }
-                    
-                }
-                
-                if loginVM.authenticated {
-                    TradeRequestsView()
-                    .tabItem {
-                        Text("Trade Requests")
-                        Image("Trade")
-                    }
-                } else {
-                    LoginView()
-                    .tabItem {
-                        Text("Trade Requests")
-                        Image("Trade")
-                    }
-                    
-                }
-            
-                RegisterView()
                 .tabItem {
-                    Text("Register")
-                    Image("Register")
+                    Text("Pokedex")
+                    Image("Pokeball")
                 }
-            
+                
+                NavigationView {
+                    UsersView()
+                }
+                .tabItem {
+                    Text("Users")
+                    Image("Users")
+                }
+                NavigationView {
+                    TradeRequestsView()
+                }
+                .tabItem {
+                    Text("Trade Requests")
+                    Image("Trade")
+                }
                 if loginVM.authenticated {
                     LogoutView()
-                    .tabItem {
-                        Text("Logout")
-                        Image("Login")
-                    }
+                        .tabItem {
+                            Text("Logout")
+                            Image("Login")
+                        }
                 }
             }
-            .onAppear(perform: claimCard)
             .environmentObject(loginVM)
+            .environmentObject(registerVM)
         }
     }
 }

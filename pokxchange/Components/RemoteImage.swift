@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct RemoteImage: View {
-    private enum LoadState {
-        case loading, success, failure
-    }
 
     private class Loader: ObservableObject {
         var data = Data()
-        var state = LoadState.loading
+        var state = ImageLoaderState.loading
 
         init(url: String) {
             guard let parsedURL = URL(string: url) else {

@@ -12,7 +12,6 @@ struct UserItemView: View {
     let viewMode: UsersViewMode
     @StateObject private var UserVM = UserViewModel()
 
-
     var body: some View {
         HStack() {
             Text(user!.username).font(.headline)
@@ -29,7 +28,7 @@ struct UserItemView: View {
             if viewMode == UsersViewMode.requests {
                 Spacer()
                 Button("Approve"){
-                    UserVM.approveFriendRequest(claimerId: myIdGetter()!, receiverId: user!.id)
+                    UserVM.approveFriendRequest(claimerId: user!.id, receiverId: myIdGetter()!)
                 }
                 .foregroundColor(.white)
                 .padding()

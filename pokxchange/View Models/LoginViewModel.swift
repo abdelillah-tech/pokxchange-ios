@@ -12,13 +12,15 @@ class LoginViewModel: ObservableObject {
     
     var username: String = ""
     var password: String = ""
-    @Published var authenticated: Bool = false
+    @Published var authenticated: Bool = isAuthenticated()
     
     func login() {
         
         let defaults = UserDefaults.standard
         
-        AuthWebService().login(username: username, password: password) { result in
+        AuthWebService().login(
+            username: username,
+            password: password) { result in
             switch result {
                 case .success(let token):
                     defaults.setValue(token, forKey: "jsonwebtoken")

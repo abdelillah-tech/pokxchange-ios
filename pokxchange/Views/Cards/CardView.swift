@@ -27,7 +27,7 @@ struct CardView: View {
                 CustomText(text: card!.name,size: 30 * taux)
                     .padding(.horizontal)
                 Spacer()
-                CustomText(text: "x0",size: 30 * taux)
+                CustomText(text: "\(card!.generation)",size: 30 * taux)
                     .padding(.horizontal)
             }
             RemoteImage(url: card!.image)
@@ -36,19 +36,31 @@ struct CardView: View {
             Spacer()
 
             HStack {
-                HStack {
-                    CustomText(text: "Height:",size:15 * taux)
-                    CustomText(text: "23",size:15 * taux)
-                }
-                HStack {
-                    CustomText(text: "Weight:",size:15 * taux)
-                    CustomText(text: "50",size:15 * taux)
-                }
-                HStack {
-                    CustomText(text: "Health:",size:15 * taux)
-                    CustomText(text: "***",size:15 * taux)
-                }
-            }
+                VStack(alignment: .leading){
+                    HStack {
+                        CustomText(text: "Height:",size:15 * taux)
+                        CustomText(text: "\(card!.height)",size:15 * taux)
+                    }
+                    HStack {
+                        CustomText(text: "Weight:",size:15 * taux)
+                        CustomText(text: "\(card!.weight)",size:15 * taux)
+                    }
+                    HStack {
+                        CustomText(text: "Health:",size:15 * taux)
+                        CustomText(text: "\(card!.health)",size:15 * taux)
+                    }
+                }.padding()
+                VStack(alignment: .leading) {
+                    HStack {
+                        CustomText(text: "Types:",size:15 * taux)
+                        VStack{
+                            ForEach(card!.types, id: \.self) { type in
+                                CustomText(text: type, size:15 * taux)
+                            }
+                        }
+                    }
+                }.padding()
+            }.padding()
             Spacer()
 
         }

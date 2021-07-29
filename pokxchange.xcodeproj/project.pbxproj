@@ -7,17 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1044CD2694C8AD00BD192F /* StatesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044CC2694C8AD00BD192F /* StatesEnums.swift */; };
+		3F1044E726983C5800BD192F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044E626983C5800BD192F /* RegisterViewModel.swift */; };
+		3F1044EB26987F0C00BD192F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044EA26987F0C00BD192F /* Trade.swift */; };
+		3F1044EE26987F2500BD192F /* Trader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044ED26987F2500BD192F /* Trader.swift */; };
+		3F1044F526987FD600BD192F /* CollectedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044F426987FD600BD192F /* CollectedCard.swift */; };
+		3F1044FC26988AAB00BD192F /* TradePendingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1044FB26988AAB00BD192F /* TradePendingItem.swift */; };
+		3F229C5B26AAD1D30041C5DB /* WebServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C5A26AAD1D30041C5DB /* WebServicesHelper.swift */; };
+		3F229C6626AB60CC0041C5DB /* FriendshipPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C6526AB60CC0041C5DB /* FriendshipPending.swift */; };
+		3F229C6B26ADA7AB0041C5DB /* TradePending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C6A26ADA7AB0041C5DB /* TradePending.swift */; };
+		3F229C6F26ADB9BF0041C5DB /* CollectionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C6E26ADB9BF0041C5DB /* CollectionCard.swift */; };
+		3F229C7826ADD34C0041C5DB /* TradeProposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C7726ADD34C0041C5DB /* TradeProposal.swift */; };
+		3F229C7B26ADD3690041C5DB /* TradeValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C7A26ADD3690041C5DB /* TradeValidation.swift */; };
+		3F229C7E26ADF2010041C5DB /* GroupedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C7D26ADF2010041C5DB /* GroupedCard.swift */; };
+		3F229C8526B154EC0041C5DB /* CollectedUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C8426B154EC0041C5DB /* CollectedUtil.swift */; };
+		3F229C8926B155AC0041C5DB /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F229C8826B155AC0041C5DB /* Collection.swift */; };
 		3F32811C268E640900F57A78 /* CardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32811B268E640900F57A78 /* CardItemView.swift */; };
 		3F328126268E645B00F57A78 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328125268E645B00F57A78 /* CardItem.swift */; };
 		3F32812E268F005800F57A78 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32812D268F005800F57A78 /* UserItem.swift */; };
 		3F328131268F006900F57A78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328130268F006900F57A78 /* User.swift */; };
 		3F328138268F023600F57A78 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328137268F023600F57A78 /* UserItemView.swift */; };
 		3F32813D268F1CEA00F57A78 /* CardWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32813C268F1CEA00F57A78 /* CardWebService.swift */; };
-		3F328141268F1DA600F57A78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328140268F1DA600F57A78 /* Errors.swift */; };
+		3F328141268F1DA600F57A78 /* ErrorsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328140268F1DA600F57A78 /* ErrorsUtils.swift */; };
 		3F328144268F316B00F57A78 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328143268F316A00F57A78 /* CardView.swift */; };
 		3F328153268F3E0000F57A78 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328152268F3E0000F57A78 /* RemoteImage.swift */; };
-		3F328156268F4CDB00F57A78 /* HexToRgbColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328155268F4CDB00F57A78 /* HexToRgbColorConverter.swift */; };
-		3F328159268F54AF00F57A78 /* RarityToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328158268F54AF00F57A78 /* RarityToColor.swift */; };
 		3F32815C268F71C300F57A78 /* ClaimViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32815B268F71C300F57A78 /* ClaimViewModel.swift */; };
 		3F32815F268F792400F57A78 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32815E268F792400F57A78 /* CollectionViewModel.swift */; };
 		3F328162268F7AE100F57A78 /* CardLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F328161268F7AE100F57A78 /* CardLocalService.swift */; };
@@ -32,10 +45,12 @@
 		3F32818E2692687400F57A78 /* MyIdUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32818D2692687400F57A78 /* MyIdUtils.swift */; };
 		3F8B341D26701F49002286FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B341C26701F49002286FB /* Assets.xcassets */; };
 		3F8B342026701F49002286FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B341F26701F49002286FB /* Preview Assets.xcassets */; };
-		3F8B343126702276002286FB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B342C26702276002286FB /* Account.swift */; };
-		3F8B343226702276002286FB /* View+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B342E26702276002286FB /* View+Extentions.swift */; };
 		3F8B343326702276002286FB /* AuthWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B343026702276002286FB /* AuthWebService.swift */; };
 		3F8B34492670249E002286FB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B34482670249E002286FB /* LoginViewModel.swift */; };
+		3F9300CA269490730055F44B /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9300C9269490720055F44B /* ColorUtils.swift */; };
+		3F9300D02694A1C10055F44B /* AuthUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9300CF2694A1C10055F44B /* AuthUtils.swift */; };
+		3F9300D42694B5910055F44B /* NotConnectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9300D32694B5910055F44B /* NotConnectedView.swift */; };
+		3F9300DC2694B9080055F44B /* ClaimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9300DB2694B9080055F44B /* ClaimView.swift */; };
 		3FDA466A268BB13300F453B6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B341A26701F48002286FB /* LoginView.swift */; };
 		3FDA466D268BB15700F453B6 /* pokxchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B341826701F48002286FB /* pokxchangeApp.swift */; };
 		3FDA4674268BB1E700F453B6 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA4673268BB1E700F453B6 /* RegisterView.swift */; };
@@ -46,17 +61,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1044CC2694C8AD00BD192F /* StatesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesEnums.swift; sourceTree = "<group>"; };
+		3F1044E626983C5800BD192F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3F1044EA26987F0C00BD192F /* Trade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
+		3F1044ED26987F2500BD192F /* Trader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trader.swift; sourceTree = "<group>"; };
+		3F1044F426987FD600BD192F /* CollectedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedCard.swift; sourceTree = "<group>"; };
+		3F1044FB26988AAB00BD192F /* TradePendingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePendingItem.swift; sourceTree = "<group>"; };
+		3F229C5A26AAD1D30041C5DB /* WebServicesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesHelper.swift; sourceTree = "<group>"; };
+		3F229C6526AB60CC0041C5DB /* FriendshipPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipPending.swift; sourceTree = "<group>"; };
+		3F229C6A26ADA7AB0041C5DB /* TradePending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradePending.swift; sourceTree = "<group>"; };
+		3F229C6E26ADB9BF0041C5DB /* CollectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCard.swift; sourceTree = "<group>"; };
+		3F229C7726ADD34C0041C5DB /* TradeProposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeProposal.swift; sourceTree = "<group>"; };
+		3F229C7A26ADD3690041C5DB /* TradeValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeValidation.swift; sourceTree = "<group>"; };
+		3F229C7D26ADF2010041C5DB /* GroupedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedCard.swift; sourceTree = "<group>"; };
+		3F229C8426B154EC0041C5DB /* CollectedUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedUtil.swift; sourceTree = "<group>"; };
+		3F229C8826B155AC0041C5DB /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		3F32811B268E640900F57A78 /* CardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItemView.swift; sourceTree = "<group>"; };
 		3F328125268E645B00F57A78 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		3F32812D268F005800F57A78 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		3F328130268F006900F57A78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F328137268F023600F57A78 /* UserItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		3F32813C268F1CEA00F57A78 /* CardWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWebService.swift; sourceTree = "<group>"; };
-		3F328140268F1DA600F57A78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		3F328140268F1DA600F57A78 /* ErrorsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsUtils.swift; sourceTree = "<group>"; };
 		3F328143268F316A00F57A78 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		3F328152268F3E0000F57A78 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
-		3F328155268F4CDB00F57A78 /* HexToRgbColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToRgbColorConverter.swift; sourceTree = "<group>"; };
-		3F328158268F54AF00F57A78 /* RarityToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RarityToColor.swift; sourceTree = "<group>"; };
 		3F32815B268F71C300F57A78 /* ClaimViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimViewModel.swift; sourceTree = "<group>"; };
 		3F32815E268F792400F57A78 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		3F328161268F7AE100F57A78 /* CardLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalService.swift; sourceTree = "<group>"; };
@@ -75,10 +103,12 @@
 		3F8B341C26701F49002286FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F8B341F26701F49002286FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F8B342126701F49002286FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F8B342C26702276002286FB /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		3F8B342E26702276002286FB /* View+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extentions.swift"; sourceTree = "<group>"; };
 		3F8B343026702276002286FB /* AuthWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthWebService.swift; sourceTree = "<group>"; };
 		3F8B34482670249E002286FB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3F9300C9269490720055F44B /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		3F9300CF2694A1C10055F44B /* AuthUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUtils.swift; sourceTree = "<group>"; };
+		3F9300D32694B5910055F44B /* NotConnectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotConnectedView.swift; sourceTree = "<group>"; };
+		3F9300DB2694B9080055F44B /* ClaimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimView.swift; sourceTree = "<group>"; };
 		3FDA4673268BB1E700F453B6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FDA4676268BB3B600F453B6 /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 		3FDA4679268BB6BD00F453B6 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
@@ -97,23 +127,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1044FA26988A8B00BD192F /* Trade */ = {
+			isa = PBXGroup;
+			children = (
+				3F32818A269255FB00F57A78 /* TradeRequestsView.swift */,
+				3FDA4676268BB3B600F453B6 /* TradeView.swift */,
+				3F1044FB26988AAB00BD192F /* TradePendingItem.swift */,
+			);
+			path = Trade;
+			sourceTree = "<group>";
+		};
 		3F32813F268F1D8F00F57A78 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3F328140268F1DA600F57A78 /* Errors.swift */,
-				3F328155268F4CDB00F57A78 /* HexToRgbColorConverter.swift */,
-				3F328158268F54AF00F57A78 /* RarityToColor.swift */,
-				3F328152268F3E0000F57A78 /* RemoteImage.swift */,
+				3F1044CC2694C8AD00BD192F /* StatesEnums.swift */,
+				3F328140268F1DA600F57A78 /* ErrorsUtils.swift */,
+				3F229C5A26AAD1D30041C5DB /* WebServicesHelper.swift */,
 				3F32818D2692687400F57A78 /* MyIdUtils.swift */,
+				3F9300C9269490720055F44B /* ColorUtils.swift */,
+				3F9300CF2694A1C10055F44B /* AuthUtils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		3F32819026926CB800F57A78 /* Items */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Items;
 			sourceTree = "<group>";
 		};
 		3F8B340C26701F48002286FB = {
@@ -135,10 +169,10 @@
 		3F8B341726701F48002286FB /* pokxchange */ = {
 			isa = PBXGroup;
 			children = (
+				3F9300DA2694B77E0055F44B /* Components */,
 				3F32813F268F1D8F00F57A78 /* Utils */,
 				3FDA4668268BACF700F453B6 /* Views */,
 				3F8B3447267023D9002286FB /* View Models */,
-				3F8B342D26702276002286FB /* Extentions */,
 				3F8B342B26702276002286FB /* Models */,
 				3F8B342F26702276002286FB /* Services */,
 				3F8B341826701F48002286FB /* pokxchangeApp.swift */,
@@ -160,23 +194,23 @@
 		3F8B342B26702276002286FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F8B342C26702276002286FB /* Account.swift */,
-				3FDA4693268E617D00F453B6 /* Card.swift */,
-				3F328125268E645B00F57A78 /* CardItem.swift */,
+				3F229C6A26ADA7AB0041C5DB /* TradePending.swift */,
 				3F32812D268F005800F57A78 /* UserItem.swift */,
 				3F328130268F006900F57A78 /* User.swift */,
+				3F328125268E645B00F57A78 /* CardItem.swift */,
+				3F1044F426987FD600BD192F /* CollectedCard.swift */,
+				3F229C6E26ADB9BF0041C5DB /* CollectionCard.swift */,
+				3FDA4693268E617D00F453B6 /* Card.swift */,
+				3F1044ED26987F2500BD192F /* Trader.swift */,
+				3F1044EA26987F0C00BD192F /* Trade.swift */,
+				3F229C6526AB60CC0041C5DB /* FriendshipPending.swift */,
+				3F229C7726ADD34C0041C5DB /* TradeProposal.swift */,
+				3F229C7A26ADD3690041C5DB /* TradeValidation.swift */,
+				3F229C7D26ADF2010041C5DB /* GroupedCard.swift */,
+				3F229C8826B155AC0041C5DB /* Collection.swift */,
 			);
 			name = Models;
 			path = ../../pokexchange/Shared/Models;
-			sourceTree = "<group>";
-		};
-		3F8B342D26702276002286FB /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				3F8B342E26702276002286FB /* View+Extentions.swift */,
-			);
-			name = Extentions;
-			path = ../../pokexchange/Shared/Extentions;
 			sourceTree = "<group>";
 		};
 		3F8B342F26702276002286FB /* Services */ = {
@@ -200,26 +234,60 @@
 				3F32815E268F792400F57A78 /* CollectionViewModel.swift */,
 				3F32816E2690798300F57A78 /* UserViewModel.swift */,
 				3F3281842691233C00F57A78 /* TradeViewModel.swift */,
+				3F1044E626983C5800BD192F /* RegisterViewModel.swift */,
+				3F229C8426B154EC0041C5DB /* CollectedUtil.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		3F9300D22694B5460055F44B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3F32817B2690F83600F57A78 /* LogoutView.swift */,
+				3FDA4673268BB1E700F453B6 /* RegisterView.swift */,
+				3F8B341A26701F48002286FB /* LoginView.swift */,
+				3F9300D32694B5910055F44B /* NotConnectedView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3F9300D72694B7050055F44B /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				3F32811B268E640900F57A78 /* CardItemView.swift */,
+				3F3281752690ABF800F57A78 /* CardIconView.swift */,
+				3F328143268F316A00F57A78 /* CardView.swift */,
+				3FDA4686268BB7D200F453B6 /* CollectionView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		3F9300D82694B73E0055F44B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				3FDA4679268BB6BD00F453B6 /* UsersView.swift */,
+				3F328137268F023600F57A78 /* UserItemView.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		3F9300DA2694B77E0055F44B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F3281782690D03B00F57A78 /* SearchBar.swift */,
+				3F328152268F3E0000F57A78 /* RemoteImage.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		3FDA4668268BACF700F453B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3F32819026926CB800F57A78 /* Items */,
-				3F8B341A26701F48002286FB /* LoginView.swift */,
-				3FDA4673268BB1E700F453B6 /* RegisterView.swift */,
-				3FDA4676268BB3B600F453B6 /* TradeView.swift */,
-				3F328137268F023600F57A78 /* UserItemView.swift */,
-				3FDA4679268BB6BD00F453B6 /* UsersView.swift */,
-				3FDA4686268BB7D200F453B6 /* CollectionView.swift */,
-				3F32811B268E640900F57A78 /* CardItemView.swift */,
-				3F328143268F316A00F57A78 /* CardView.swift */,
-				3F3281752690ABF800F57A78 /* CardIconView.swift */,
-				3F3281782690D03B00F57A78 /* SearchBar.swift */,
-				3F32817B2690F83600F57A78 /* LogoutView.swift */,
-				3F32818A269255FB00F57A78 /* TradeRequestsView.swift */,
+				3F1044FA26988A8B00BD192F /* Trade */,
+				3F9300D82694B73E0055F44B /* Users */,
+				3F9300D72694B7050055F44B /* Cards */,
+				3F9300D22694B5460055F44B /* Authentication */,
+				3F9300DB2694B9080055F44B /* ClaimView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,39 +362,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDA4687268BB7D200F453B6 /* CollectionView.swift in Sources */,
+				3F9300CA269490730055F44B /* ColorUtils.swift in Sources */,
 				3F32815C268F71C300F57A78 /* ClaimViewModel.swift in Sources */,
 				3FDA466A268BB13300F453B6 /* LoginView.swift in Sources */,
+				3F229C8526B154EC0041C5DB /* CollectedUtil.swift in Sources */,
+				3F1044E726983C5800BD192F /* RegisterViewModel.swift in Sources */,
+				3F229C7E26ADF2010041C5DB /* GroupedCard.swift in Sources */,
 				3F328138268F023600F57A78 /* UserItemView.swift in Sources */,
 				3F32811C268E640900F57A78 /* CardItemView.swift in Sources */,
 				3F32816F2690798300F57A78 /* UserViewModel.swift in Sources */,
 				3F32812E268F005800F57A78 /* UserItem.swift in Sources */,
 				3F8B34492670249E002286FB /* LoginViewModel.swift in Sources */,
 				3F32813D268F1CEA00F57A78 /* CardWebService.swift in Sources */,
-				3F328141268F1DA600F57A78 /* Errors.swift in Sources */,
+				3F328141268F1DA600F57A78 /* ErrorsUtils.swift in Sources */,
+				3F1044EB26987F0C00BD192F /* Trade.swift in Sources */,
 				3F32815F268F792400F57A78 /* CollectionViewModel.swift in Sources */,
 				3F328126268E645B00F57A78 /* CardItem.swift in Sources */,
+				3F229C7B26ADD3690041C5DB /* TradeValidation.swift in Sources */,
 				3F328153268F3E0000F57A78 /* RemoteImage.swift in Sources */,
+				3F229C8926B155AC0041C5DB /* Collection.swift in Sources */,
 				3F3281852691233C00F57A78 /* TradeViewModel.swift in Sources */,
-				3F8B343126702276002286FB /* Account.swift in Sources */,
 				3FDA4694268E617D00F453B6 /* Card.swift in Sources */,
+				3F1044CD2694C8AD00BD192F /* StatesEnums.swift in Sources */,
 				3FDA4674268BB1E700F453B6 /* RegisterView.swift in Sources */,
 				3F8B343326702276002286FB /* AuthWebService.swift in Sources */,
 				3F3281792690D03B00F57A78 /* SearchBar.swift in Sources */,
 				3F3281762690ABF800F57A78 /* CardIconView.swift in Sources */,
+				3F229C5B26AAD1D30041C5DB /* WebServicesHelper.swift in Sources */,
+				3F9300D02694A1C10055F44B /* AuthUtils.swift in Sources */,
 				3F328182269122EA00F57A78 /* TradeWebService.swift in Sources */,
 				3F32816C269075C900F57A78 /* UserWebServer.swift in Sources */,
-				3F328156268F4CDB00F57A78 /* HexToRgbColorConverter.swift in Sources */,
+				3F229C6626AB60CC0041C5DB /* FriendshipPending.swift in Sources */,
 				3F32818E2692687400F57A78 /* MyIdUtils.swift in Sources */,
 				3F328144268F316B00F57A78 /* CardView.swift in Sources */,
+				3F229C6F26ADB9BF0041C5DB /* CollectionCard.swift in Sources */,
 				3F328162268F7AE100F57A78 /* CardLocalService.swift in Sources */,
+				3F9300DC2694B9080055F44B /* ClaimView.swift in Sources */,
 				3FDA467A268BB6BD00F453B6 /* UsersView.swift in Sources */,
+				3F229C7826ADD34C0041C5DB /* TradeProposal.swift in Sources */,
+				3F1044F526987FD600BD192F /* CollectedCard.swift in Sources */,
 				3F328131268F006900F57A78 /* User.swift in Sources */,
 				3F32817C2690F83600F57A78 /* LogoutView.swift in Sources */,
-				3F328159268F54AF00F57A78 /* RarityToColor.swift in Sources */,
 				3FDA4677268BB3B600F453B6 /* TradeView.swift in Sources */,
-				3F8B343226702276002286FB /* View+Extentions.swift in Sources */,
+				3F9300D42694B5910055F44B /* NotConnectedView.swift in Sources */,
+				3F1044FC26988AAB00BD192F /* TradePendingItem.swift in Sources */,
 				3F32818B269255FB00F57A78 /* TradeRequestsView.swift in Sources */,
 				3FDA466D268BB15700F453B6 /* pokxchangeApp.swift in Sources */,
+				3F229C6B26ADA7AB0041C5DB /* TradePending.swift in Sources */,
+				3F1044EE26987F2500BD192F /* Trader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

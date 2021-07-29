@@ -13,7 +13,6 @@ struct LoginView: View {
     @State private var showMessage = false
     @State private var username = ""
     @State private var password  = ""
-    @State private var authenticated = false
 
     var body: some View {
         VStack {

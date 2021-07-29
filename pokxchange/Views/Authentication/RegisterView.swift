@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject private var loginVM = LoginViewModel()
+    @EnvironmentObject private var registerVM: RegisterViewModel
 
     var body: some View {
         VStack {
             Spacer()
 
             Form {
-                TextField("Username", text: $loginVM.username)
-                TextField("First name", text: $loginVM.username)
-                TextField("Last name", text: $loginVM.username)
-                TextField("Email", text: $loginVM.username)
-                SecureField("Password", text: $loginVM.password)
-                SecureField("Confirm password", text: $loginVM.password)
+                TextField("Username", text: $registerVM.username)
+                TextField("First name", text: $registerVM.firstName)
+                TextField("Last name", text: $registerVM.lastName)
+                TextField("Email", text: $registerVM.email)
+                SecureField("Password", text: $registerVM.password)
                 HStack {
                     Spacer()
                     Button("Register") {
-                        loginVM.login()
+                        registerVM.register()
                     }
                     .foregroundColor(.white)
                     .padding()

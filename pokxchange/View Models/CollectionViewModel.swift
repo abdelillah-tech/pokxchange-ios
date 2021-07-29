@@ -10,31 +10,54 @@ import SwiftUI
 class CollectionViewModel: ObservableObject {
     
     @EnvironmentObject private var loginVM: LoginViewModel
-    @Published var collection = [Card]()
-    @State var authenticated = false
-        
-    func getCollection(id: UUID) {
-        CardWebService().getCollection(id: id) { result in
+    @Published var collection: [GroupedCard] = []
+    @Published private(set) var state = LoaderState<GroupedCard>.idle
+    private let defaults = UserDefaults.standard
+
+    
+    func loadCollection(id: UUID?) {
+        state = .loading
+
+        CardWebService().getCollection() { [weak self] result in
             switch result {
-                case .success(let cards):
-                    DispatchQueue.main.async {
-                        self.collection = cards
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .success(let collection):
+                
+                let groupedCards = collection.reduce(into: [:]) { result, card in
+                    result[card, default: 0] += 1
+                }.map{item in GroupedCard(card: item.key, quantity: item.value)}
+                
+                DispatchQueue.main.async {
+                    self?.state = .loaded(groupedCards)
+                    self?.collection = groupedCards
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.state = .failed(error)
+                }
             }
         }
     }
     
-    func getAllCards() {
-        CardWebService().getAllCards() { result in
+    func loadUserCollection(id: UUID?) {
+        state = .loading
+        guard let token = defaults.string(forKey: "jsonwebtoken") else {
+            return
+        }
+        CardWebService().getUserCollection(token: token, id: id != nil ? id : myIdGetter()) { [weak self] result in
             switch result {
-                case .success(let cards):
-                    DispatchQueue.main.async {
-                        self.collection = cards
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .success(let collection):
+                let groupedCards = collection.reduce(into: [:]) { result, card in
+                    result[card, default: 0] += 1
+                }.map{item in GroupedCard(card: item.key, quantity: item.value)}
+                
+                DispatchQueue.main.async {
+                    self?.state = .loaded(groupedCards)
+                    self?.collection = groupedCards
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.state = .failed(error)
+                }
             }
         }
     }

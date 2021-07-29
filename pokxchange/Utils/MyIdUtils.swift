@@ -12,15 +12,18 @@ public func myIdSetter(username: String) {
     guard let token = defaults.string(forKey: "jsonwebtoken") else {
         return
     }
-    UserWebService().getUserIdByUsername(token: token, username: username) { result in
+    UserWebService().getUserByUsername(token: token, username: username) { result in
+        let encoder = JSONEncoder()
         switch result {
-            case .success(let myId):
-                defaults.setValue(token, forKey: "jsonwebtoken")
-                DispatchQueue.main.async {
-                    defaults.setValue(myId.uuidString, forKey: "myId")
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
+        case .success(let user):
+            guard let data = try? encoder.encode(user) else { return }
+            defaults.set(data, forKey: "me")
+            defaults.setValue(token, forKey: "jsonwebtoken")
+            DispatchQueue.main.async {
+                defaults.setValue(user.id.uuidString, forKey: "myId")
+            }
+        case .failure(let error):
+            print(error.localizedDescription)
         }
     }
 }
@@ -31,4 +34,18 @@ public func myIdGetter() -> UUID? {
         return nil
     }
     return UUID.init(uuidString: myId)
+}
+
+func myUserGetter() -> User? {
+    let defaults = UserDefaults.standard
+    if let objects = defaults.value(forKey: "me") as? Data {
+        let decoder = JSONDecoder()
+        if let objectsDecoded = try? decoder.decode(User.self, from: objects) as User {
+            return objectsDecoded
+        } else {
+            return nil
+        }
+    } else {
+            return nil
+    }
 }

@@ -7,21 +7,20 @@
 
 import Foundation
 
-
-class ClaimViewModel: ObservableObject {
-    
-    @Published var card: Card?
-
-    func claim(authenticated: Bool) -> Bool {
-        let claim = CardWebService().claim()
-        DispatchQueue.main.async {
-            self.card = claim.0
-            CollectionViewModel().saveCard(card: self.card!, authenticated: authenticated)
+func claim() -> Card? {
+    var bonusCard: Card?
+    guard let token = UserDefaults.standard.string(forKey: "jsonwebtoken") else {
+        return nil
+    }
+    CardWebService().bonus(token: token, id : myIdGetter()) { result in
+        switch result {
+        case .success(let card):
+            DispatchQueue.main.async {
+                bonusCard = card
+            }
+        case .failure(_): break
         }
-        return claim.1
     }
-    
-    func reset() {
-        self.card = nil
-    }
+    return bonusCard
 }
+
